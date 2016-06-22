@@ -193,9 +193,10 @@ u8 NFC_Module::InListPassiveTarget(u8 *buf, u8 brty,
         return 0;
     }
 	
+#ifdef PN532DEBUG
     puthex(nfc_buf, nfc_buf[3]+6);
     Serial.println();
-
+#endif
     if(nfc_buf[NFC_FRAME_ID_INDEX] != (PN532_COMMAND_INLISTPASSIVETARGET+1)){
         return 0;
     }
